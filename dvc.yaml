@@ -1,0 +1,35 @@
+stages:
+	prepare:
+		cmd: python src/prepare_data.py
+		deps:
+			- src/prepare_data.py
+			- params.yaml
+		outs:
+			- data/processed/train.csv
+			- data/processed/test.csv
+
+	train:
+		cmd: python src/train.py
+		deps:
+			- src/train.py
+			- src/prepare_data.py
+			- params.yaml
+			- data/processed/train.csv
+			- mlflow_setup.py
+		params:
+			- data.random_state
+			- train.max_iter
+			- train.C
+		outs:
+			- models/model.joblib
+
+	evaluate:
+		cmd: python src/evaluate.py
+		deps:
+			- src/evaluate.py
+			- params.yaml
+			- models/model.joblib
+			- data/processed/test.csv
+			- mlflow_setup.py
+		metrics:
+			- metrics/metrics.json
