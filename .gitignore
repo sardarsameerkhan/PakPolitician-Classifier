@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+.pytest_cache/
+.mypy_cache/
+
+# DVC and MLflow
+.dvc/cache/
+.dvc/tmp/
+mlruns/
+
+# Generated artifacts
+models/
+metrics/
+data/raw/
+data/processed/
+
+# Notebook and editor
+.ipynb_checkpoints/
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
