@@ -1,27 +1,28 @@
 # PakPolitician-Classifier
 
-Starter machine learning pipeline scaffold for classifying Pakistani politicians.
+Milestone 1 in this repository focuses on collecting and preparing an image dataset for Pakistani politician face classification.
 
-## What Is Included
+## Scope Of This Milestone
 
-- DVC pipeline with 3 stages: `prepare`, `train`, `evaluate`
-- MLflow experiment setup helper
-- Parameterized training via `params.yaml`
-- Metrics output for DVC tracking
+- Collect image data for 16 classes (15 politicians + 1 military spokesperson)
+- Enforce minimum 80 images per class
+- Split into `train/val/test` with `75/15/10`
+- Track dataset stages with DVC
 
-## Project Structure
+## Dataset Layout
 
 ```
-.
-|-- .gitignore
-|-- dvc.yaml
-|-- mlflow_setup.py
-|-- params.yaml
-|-- requirements.txt
-`-- src/
-	|-- prepare_data.py
-	|-- train.py
-	`-- evaluate.py
+dataset/
+|-- train/
+|   |-- imran_khan/
+|   |-- nawaz_sharif/
+|   `-- ...
+|-- val/
+|   |-- imran_khan/
+|   `-- ...
+`-- test/
+    |-- imran_khan/
+    `-- ...
 ```
 
 ## Setup
@@ -33,34 +34,41 @@ Starter machine learning pipeline scaffold for classifying Pakistani politicians
 pip install -r requirements.txt
 ```
 
-3. Initialize DVC if not already done:
+3. Initialize DVC:
 
 ```powershell
 dvc init
 ```
 
-## Run Pipeline
+## Data Collection Pipeline
+
+Run all stages:
 
 ```powershell
 dvc repro
 ```
 
-This will generate:
-
-- `data/processed/train.csv`
-- `data/processed/test.csv`
-- `models/model.joblib`
-- `metrics/metrics.json`
-
-## Run Individual Steps
+Or run one-by-one:
 
 ```powershell
-python src/prepare_data.py
-python src/train.py
-python src/evaluate.py
+python src/collect_dataset.py
+python src/split_dataset.py
+python src/verify_dataset.py
 ```
 
-## MLflow
+Generated outputs:
 
-By default, MLflow uses local tracking in `mlruns/` and experiment name `pakpolitician-classifier`.
+- `data/raw/<class_name>/...`
+- `dataset/train/<class_name>/...`
+- `dataset/val/<class_name>/...`
+- `dataset/test/<class_name>/...`
+- `reports/download_summary.json`
+- `reports/split_summary.json`
+- `reports/dataset_report.json`
+
+## Notes
+
+- Edit class names and search queries in `params.yaml`.
+- Keep only publicly available, lawful images from allowed sources.
+- Perform augmentation only on the training split during model training.
 

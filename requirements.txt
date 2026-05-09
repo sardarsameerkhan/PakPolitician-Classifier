@@ -5,3 +5,7 @@ mlflow>=2.13
 dvc>=3.50
 joblib>=1.4
 pyyaml>=6.0
+requests>=2.32
+Pillow>=10.4
+duckduckgo-search>=6.2
+tqdm>=4.66

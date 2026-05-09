@@ -18,6 +18,8 @@ models/
 metrics/
 data/raw/
 data/processed/
+dataset/
+reports/
 
 # Notebook and editor
 .ipynb_checkpoints/

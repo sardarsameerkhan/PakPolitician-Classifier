@@ -1,35 +1,45 @@
 stages:
-	prepare:
-		cmd: python src/prepare_data.py
+	collect_images:
+		cmd: python src/collect_dataset.py
 		deps:
-			- src/prepare_data.py
+			- src/collect_dataset.py
 			- params.yaml
-		outs:
-			- data/processed/train.csv
-			- data/processed/test.csv
-
-	train:
-		cmd: python src/train.py
-		deps:
-			- src/train.py
-			- src/prepare_data.py
-			- params.yaml
-			- data/processed/train.csv
-			- mlflow_setup.py
 		params:
-			- data.random_state
-			- train.max_iter
-			- train.C
+			- dataset.min_images_per_class
+			- dataset.download_images_per_class
+			- dataset.min_width
+			- dataset.min_height
+			- dataset.classes
+			- dataset.class_queries
 		outs:
-			- models/model.joblib
+			- data/raw
+			- reports/download_summary.json
 
-	evaluate:
-		cmd: python src/evaluate.py
+	split_dataset:
+		cmd: python src/split_dataset.py
 		deps:
-			- src/evaluate.py
+			- src/split_dataset.py
 			- params.yaml
-			- models/model.joblib
-			- data/processed/test.csv
-			- mlflow_setup.py
+			- data/raw
+		params:
+			- dataset.random_state
+			- dataset.split
+			- dataset.min_images_per_class
+			- dataset.classes
+		outs:
+			- dataset/train
+			- dataset/val
+			- dataset/test
+			- reports/split_summary.json
+
+	verify_dataset:
+		cmd: python src/verify_dataset.py
+		deps:
+			- src/verify_dataset.py
+			- params.yaml
+			- dataset/train
+			- dataset/val
+			- dataset/test
+			- reports/split_summary.json
 		metrics:
-			- metrics/metrics.json
+			- reports/dataset_report.json

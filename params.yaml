@@ -1,7 +1,47 @@
-data:
-  test_size: 0.2
+dataset:
+  min_images_per_class: 80
+  download_images_per_class: 140
   random_state: 42
+  min_width: 160
+  min_height: 160
 
-train:
-  max_iter: 500
-  C: 1.0
+  split:
+    train: 0.75
+    val: 0.15
+    test: 0.10
+
+  classes:
+    - imran_khan
+    - nawaz_sharif
+    - shehbaz_sharif
+    - maryam_nawaz
+    - bilawal_bhutto_zardari
+    - asif_ali_zardari
+    - maulana_fazlur_rehman
+    - altaf_hussain
+    - siraj_ul_haq
+    - pervaiz_elahi
+    - saad_rizvi
+    - khawaja_asif
+    - gohar_ali_khan
+    - shahid_khaqan_abbasi
+    - asad_umar
+    - ahmed_sharif_chaudhry
+
+  class_queries:
+    imran_khan: "Imran Khan face portrait"
+    nawaz_sharif: "Nawaz Sharif face portrait"
+    shehbaz_sharif: "Shehbaz Sharif face portrait"
+    maryam_nawaz: "Maryam Nawaz face portrait"
+    bilawal_bhutto_zardari: "Bilawal Bhutto Zardari face portrait"
+    asif_ali_zardari: "Asif Ali Zardari face portrait"
+    maulana_fazlur_rehman: "Maulana Fazlur Rehman face portrait"
+    altaf_hussain: "Altaf Hussain face portrait"
+    siraj_ul_haq: "Siraj ul Haq face portrait"
+    pervaiz_elahi: "Pervaiz Elahi face portrait"
+    saad_rizvi: "Saad Rizvi face portrait"
+    khawaja_asif: "Khawaja Asif face portrait"
+    gohar_ali_khan: "Gohar Ali Khan face portrait"
+    shahid_khaqan_abbasi: "Shahid Khaqan Abbasi face portrait"
+    asad_umar: "Asad Umar face portrait"
+    ahmed_sharif_chaudhry: "Ahmed Sharif Chaudhry DG ISPR face portrait"
