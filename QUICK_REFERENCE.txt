@@ -1,0 +1,151 @@
+╔════════════════════════════════════════════════════════════════════════════════╗
+║                                                                                │
+║            🇵🇰 PakPolitician-Classifier - QUICK REFERENCE CARD 🇵🇰              │
+║                                                                                │
+║                        DATASET: 16 POLITICIANS | AI READY                      │
+║                                                                                │
+╚════════════════════════════════════════════════════════════════════════════════╝
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 🚀 QUICK START (Recommended)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+First Time Setup:
+   PowerShell> .\setup.ps1
+
+Run Full Pipeline:
+   PowerShell> dvc repro
+
+   Duration: 15-30 minutes (includes image download & splitting)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 📋 MANUAL PIPELINE EXECUTION (Step by Step)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Step 1: Download Images
+   PowerShell> python src/collect_dataset.py
+   Output: data/raw/ (16 politician folders with ~140 images each)
+
+Step 2: Split into Train/Val/Test
+   PowerShell> python src/split_dataset.py
+   Output: dataset/train/, dataset/val/, dataset/test/
+
+Step 3: Verify Dataset
+   PowerShell> python src/verify_dataset.py
+   Output: reports/dataset_report.json
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ ✅ VERIFY RESULTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Check if dataset is complete:
+   PowerShell> Get-Content reports/dataset_report.json | ConvertFrom-Json
+
+Check data structure:
+   PowerShell> Get-ChildItem dataset/train -Directory | Measure-Object
+   (Should show Count = 16)
+
+View download statistics:
+   PowerShell> Get-Content reports/download_summary.json | ConvertFrom-Json
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 👤 16 POLITICIANS CONFIGURED
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  1. Imran Khan                      9. Siraj ul Haq
+  2. Nawaz Sharif                   10. Pervaiz Elahi
+  3. Shehbaz Sharif                 11. Saad Rizvi
+  4. Maryam Nawaz                   12. Khawaja Asif
+  5. Bilawal Bhutto Zardari         13. Gohar Ali Khan
+  6. Asif Ali Zardari               14. Shahid Khaqan Abbasi
+  7. Maulana Fazlur Rehman          15. Asad Umar
+  8. Altaf Hussain                  16. Ahmed Sharif Chaudhry (DG ISPR)
+
+⚙️ Configuration: params.yaml (edit to customize)
+📊 Pipeline: dvc.yaml
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 📊 DATASET SPECIFICATIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Per Politician:
+   • Minimum Images: 80
+   • Target Download: 140
+   • Quality Filter: 160×160 pixels minimum
+   • Format: JPEG, Quality 95
+   • Deduplication: SHA1 hash-based
+
+Dataset Split:
+   • Training: 75%
+   • Validation: 15%
+   • Testing: 10%
+
+Output Directories:
+   data/raw/         → Raw downloaded images
+   dataset/train/    → Training split
+   dataset/val/      → Validation split
+   dataset/test/     → Testing split
+   reports/          → JSON reports & metrics
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 🔧 TROUBLESHOOTING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+❌ "Module not found: duckduckgo_search"
+✅ pip install duckduckgo-search>=6.2
+
+❌ "dvc command not found"
+✅ pip install dvc>=3.50
+
+❌ "Too few images"
+✅ python src/collect_dataset.py  # Re-run to continue downloading
+
+❌ "DVC pipeline errors"
+✅ dvc repro --force  # Force re-run from scratch
+
+❌ No internet connection
+✅ Ensure stable internet, check firewall settings
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 📚 DOCUMENTATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+README.md              → Project overview
+SETUP_GUIDE.md         → Detailed setup & execution guide
+PROJECT_STATUS.md      → Current status & architecture
+params.yaml            → Dataset configuration
+dvc.yaml               → Pipeline definition
+setup.ps1              → Automated Windows setup
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 🎯 NEXT STEPS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+After dataset is ready:
+   1. Feature Extraction (Face embeddings)
+   2. Model Training (Classifier training)
+   3. Model Evaluation (Performance metrics)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ ℹ️ INFO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Status:      ✅ Ready for Execution
+Milestone:   1 (Data Collection & Preparation)
+Dataset:     16 Pakistani Politicians
+Created:     2026-05-09
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ 🚀 READY TO START? Run: dvc repro                                            ┃
+┃    Expected time: 15-30 minutes                                              ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛

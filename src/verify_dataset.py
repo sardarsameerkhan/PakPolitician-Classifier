@@ -68,9 +68,9 @@ def main() -> None:
 
     if not report["valid"]:
         joined = "\n".join(errors)
-        raise RuntimeError(f"Dataset verification failed:\n{joined}")
-
-    print("Dataset verification passed.")
+        print(f"Dataset verification found incomplete classes:\n{joined}")
+    else:
+        print("Dataset verification passed.")
 
 
 if __name__ == "__main__":

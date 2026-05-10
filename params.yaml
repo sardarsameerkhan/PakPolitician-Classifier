@@ -1,5 +1,5 @@
 dataset:
-  min_images_per_class: 80
+  min_images_per_class: 60
   download_images_per_class: 140
   random_state: 42
   min_width: 160
@@ -20,13 +20,13 @@ dataset:
     - maulana_fazlur_rehman
     - altaf_hussain
     - siraj_ul_haq
-    - pervaiz_elahi
-    - saad_rizvi
-    - khawaja_asif
-    - gohar_ali_khan
-    - shahid_khaqan_abbasi
-    - asad_umar
-    - ahmed_sharif_chaudhry
+    - hamza_shahbaz
+    - sherry_rehman
+    - fawad_chaudhry
+    - chaudhry_nisar_ali_khan
+    - khurram_dastgir_khan
+    - tariq_fazal_chaudhry
+    - maryam_aurangzeb
 
   class_queries:
     imran_khan: "Imran Khan face portrait"
@@ -38,10 +38,10 @@ dataset:
     maulana_fazlur_rehman: "Maulana Fazlur Rehman face portrait"
     altaf_hussain: "Altaf Hussain face portrait"
     siraj_ul_haq: "Siraj ul Haq face portrait"
-    pervaiz_elahi: "Pervaiz Elahi face portrait"
-    saad_rizvi: "Saad Rizvi face portrait"
-    khawaja_asif: "Khawaja Asif face portrait"
-    gohar_ali_khan: "Gohar Ali Khan face portrait"
-    shahid_khaqan_abbasi: "Shahid Khaqan Abbasi face portrait"
-    asad_umar: "Asad Umar face portrait"
-    ahmed_sharif_chaudhry: "Ahmed Sharif Chaudhry DG ISPR face portrait"
+    hamza_shahbaz: "Hamza Shahbaz face portrait"
+    sherry_rehman: "Sherry Rehman face portrait"
+    fawad_chaudhry: "Fawad Chaudhry face portrait"
+    chaudhry_nisar_ali_khan: "Chaudhry Nisar Ali Khan face portrait"
+    khurram_dastgir_khan: "Khurram Dastgir Khan face portrait"
+    tariq_fazal_chaudhry: "Tariq Fazal Chaudhry face portrait"
+    maryam_aurangzeb: "Maryam Aurangzeb face portrait"

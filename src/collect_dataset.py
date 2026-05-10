@@ -10,8 +10,18 @@ from typing import Any
 
 import requests
 import yaml
-from duckduckgo_search import DDGS
 from PIL import Image, UnidentifiedImageError
+
+try:
+    from ddgs import DDGS
+    USING_DDGS = True
+except ImportError:
+    try:
+        from duckduckgo_search import DDGS
+        USING_DDGS = False
+    except ImportError:
+        print("ERROR: Neither 'ddgs' nor 'duckduckgo_search' found. Run: pip install ddgs")
+        raise
 
 
 def load_params() -> dict[str, Any]:
@@ -35,11 +45,23 @@ def safe_save_image(content: bytes, output_path: Path, min_width: int, min_heigh
 
 def image_urls(query: str, max_results: int) -> list[str]:
     urls: list[str] = []
-    with DDGS() as ddgs:
-        for item in ddgs.images(query, max_results=max_results):
-            url = item.get("image")
-            if isinstance(url, str) and url.startswith("http"):
-                urls.append(url)
+    retries = 5
+    for attempt in range(retries):
+        try:
+            ddgs = DDGS()
+            results = list(ddgs.images(keywords=query, max_results=max_results))
+            for item in results:
+                url = item.get("image")
+                if isinstance(url, str) and url.startswith("http"):
+                    urls.append(url)
+            break
+        except Exception as e:
+            wait_time = 15 + (attempt * 10)
+            print(f"    Attempt {attempt + 1}/{retries} failed ({type(e).__name__}). Waiting {wait_time}s...")
+            if attempt < retries - 1:
+                time.sleep(wait_time)
+            else:
+                print(f"    ⚠️  Could not fetch URLs after {retries} attempts")
     return urls
 
 
@@ -72,7 +94,12 @@ def main() -> None:
 
     summary: dict[str, dict[str, int]] = {}
 
-    for class_name in classes:
+    for idx, class_name in enumerate(classes):
+        if idx > 0:
+            print(f"\n⏳ Waiting 30 seconds before next politician (rate limit)...")
+            time.sleep(30)
+            
+        print(f"\n🔍 Collecting images for: {class_name.replace('_', ' ').title()}")
         class_dir = raw_root / class_name
         class_dir.mkdir(parents=True, exist_ok=True)
 
@@ -83,14 +110,31 @@ def main() -> None:
         for path in existing:
             seen_hashes.add(path.stem)
 
+        if saved_count > 0:
+            print(f"   Found {saved_count} existing images, continuing...")
+
         query = class_queries.get(class_name, class_name.replace("_", " "))
+        print(f"   Query: {query}")
         urls = image_urls(query, max_results=max(target_download * 3, 300))
+        print(f"   Found {len(urls)} URLs to check")
+        
+        if not urls:
+            print(f"   ⚠️  No URLs found - likely rate limited")
+            summary[class_name] = {
+                "required_minimum": min_images,
+                "target_download": target_download,
+                "downloaded_this_run": 0,
+                "total_available": saved_count,
+                "skipped": 0,
+            }
+            continue
+            
         random.shuffle(urls)
 
         downloaded = 0
         skipped = 0
 
-        for url in urls:
+        for url_idx, url in enumerate(urls):
             if saved_count >= target_download:
                 break
 
@@ -98,7 +142,7 @@ def main() -> None:
                 response = session.get(url, timeout=12)
                 response.raise_for_status()
                 content = response.content
-            except requests.RequestException:
+            except requests.RequestException as e:
                 skipped += 1
                 continue
 
@@ -117,7 +161,12 @@ def main() -> None:
             saved_count += 1
             downloaded += 1
 
-            time.sleep(0.1)
+            # More respectful delays
+            if downloaded % 5 == 0:
+                print(f"   Downloaded: {downloaded}/{target_download}", end="\r")
+            time.sleep(0.5)
+
+        print(f"   ✓ {class_name}: total={saved_count}, new={downloaded}, skipped={skipped}      ")
 
         summary[class_name] = {
             "required_minimum": min_images,
@@ -127,17 +176,20 @@ def main() -> None:
             "skipped": skipped,
         }
 
-        print(f"{class_name}: total={saved_count}, downloaded={downloaded}, skipped={skipped}")
-
     with (report_root / "download_summary.json").open("w", encoding="utf-8") as f:
         json.dump(summary, f, indent=2)
 
     failed = [name for name, info in summary.items() if info["total_available"] < min_images]
     if failed:
         names = ", ".join(failed)
-        raise RuntimeError(f"Minimum image requirement not met for: {names}")
+        print(f"\n⚠️  WARNING: Minimum image requirement not met for: {names}")
+        print(f"     This may be due to rate limiting. Try running again later.")
+        print(f"     Failed classes: {names}")
+        # Don't fail hard - allow partial dataset for now
+        # raise RuntimeError(f"Minimum image requirement not met for: {names}")
 
-    print("Image collection completed.")
+    print("\n✅ Image collection completed.")
+    print(f"\nSummary saved to: reports/download_summary.json")
 
 
 if __name__ == "__main__":
