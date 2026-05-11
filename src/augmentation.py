@@ -15,24 +15,21 @@ def get_train_augmentation(image_size: int = 224) -> A.Compose:
     """Get augmentation transforms for training data only"""
     return A.Compose(
         [
+            # RandomResizedCrop combines resizing and cropping safely
+            A.RandomResizedCrop(height=image_size, width=image_size, scale=(0.8, 1.0), p=0.5),
+            
+            # First resize to target size (for images not affected by RandomResizedCrop)
+            A.Resize(height=image_size, width=image_size, always_apply=True),
+            
             # Geometric transformations
             A.Rotate(limit=30, p=0.7, border_mode=cv2.BORDER_REFLECT),
             A.HorizontalFlip(p=0.5),
             A.VerticalFlip(p=0.2),
             
-            # Zoom/Scale
-            A.RandomScale(scale_limit=0.2, p=0.5),
-            
-            # Cropping
-            A.RandomCrop(height=image_size, width=image_size, p=0.3),
-            
             # Brightness and contrast variations
             A.RandomBrightnessContrast(brightness_limit=0.2, contrast_limit=0.2, p=0.5),
             A.GaussNoise(p=0.2),
             A.Blur(blur_limit=3, p=0.2),
-            
-            # Ensure output is correct size
-            A.Resize(height=image_size, width=image_size, always_apply=True),
             
             # Normalize and convert to tensor
             A.Normalize(
