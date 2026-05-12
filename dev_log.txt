@@ -16,3 +16,4 @@ Step 3 for preprocessing/augmentation completed at 2026-05-11T01:08:58
 Step 1 for model/architecture completed at 2026-05-11T19:08:58
 Step 2 for model/architecture completed at 2026-05-11T21:08:58
 Step 3 for model/architecture completed at 2026-05-12T00:08:58
+Step 1 for training/hyperparams completed at 2026-05-12T19:08:58
