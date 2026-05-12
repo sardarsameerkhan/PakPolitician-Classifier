@@ -1,0 +1,282 @@
+C:\Users\Sardar Sameer\PakPolitician-Classifier\src\augmentation.py:22: UserWarning: Argument(s) 'always_apply' are not valid for transform Resize
+  A.Resize(height=image_size, width=image_size, always_apply=True),
+C:\Users\Sardar Sameer\PakPolitician-Classifier\src\augmentation.py:35: UserWarning: Argument(s) 'always_apply' are not valid for transform Normalize
+  A.Normalize(
+C:\Users\Sardar Sameer\PakPolitician-Classifier\src\augmentation.py:50: UserWarning: Argument(s) 'always_apply' are not valid for transform Resize
+  A.Resize(height=image_size, width=image_size, always_apply=True),
+C:\Users\Sardar Sameer\PakPolitician-Classifier\src\augmentation.py:51: UserWarning: Argument(s) 'always_apply' are not valid for transform Normalize
+  A.Normalize(
+Loading dataset...
+Loaded 974 images from train split
+Classes: 16
+Loaded 173 images from val split
+Classes: 16
+Loaded 132 images from test split
+Classes: 16
+Enabled weighted sampling for balanced training
+[OK] Classes: 16
+
+
+Training ResNet-50...
+
+============================================================
+Training ResNet-50
+Device: cpu
+Epochs: 40
+============================================================
+
+
+Epoch 1/40
+
+Training ResNet-50:   0%|          | 0/31 [00:00<?, ?it/s]C:\Users\Sardar Sameer\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\utils\data\dataloader.py:1118: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  super().__init__(loader)
+
+Training ResNet-50:   0%|          | 0/31 [00:21<?, ?it/s, loss=2.82, acc=0]
+Training ResNet-50:   3%|3         | 1/31 [00:21<10:48, 21.61s/it, loss=2.82, acc=0]
+Training ResNet-50:   3%|3         | 1/31 [00:22<10:48, 21.61s/it, loss=2.8, acc=4.69]
+Training ResNet-50:   6%|6         | 2/31 [00:22<04:36,  9.52s/it, loss=2.8, acc=4.69]
+Training ResNet-50:   6%|6         | 2/31 [00:23<04:36,  9.52s/it, loss=2.8, acc=4.17]
+Training ResNet-50:  10%|9         | 3/31 [00:23<02:37,  5.64s/it, loss=2.8, acc=4.17]
+Training ResNet-50:  10%|9         | 3/31 [00:24<02:37,  5.64s/it, loss=2.8, acc=3.91]
+Training ResNet-50:  13%|#2        | 4/31 [00:24<01:43,  3.82s/it, loss=2.8, acc=3.91]
+Training ResNet-50:  13%|#2        | 4/31 [00:25<01:43,  3.82s/it, loss=2.79, acc=5]  
+Training ResNet-50:  16%|#6        | 5/31 [00:25<01:13,  2.81s/it, loss=2.79, acc=5]
+Training ResNet-50:  16%|#6        | 5/31 [00:26<01:13,  2.81s/it, loss=2.78, acc=5.73]
+Training ResNet-50:  19%|#9        | 6/31 [00:26<00:55,  2.21s/it, loss=2.78, acc=5.73]
+Training ResNet-50:  19%|#9        | 6/31 [00:27<00:55,  2.21s/it, loss=2.77, acc=6.7] 
+Training ResNet-50:  23%|##2       | 7/31 [00:27<00:45,  1.88s/it, loss=2.77, acc=6.7]
+Training ResNet-50:  23%|##2       | 7/31 [00:29<00:45,  1.88s/it, loss=2.77, acc=8.2]
+Training ResNet-50:  26%|##5       | 8/31 [00:29<00:40,  1.74s/it, loss=2.77, acc=8.2]
+Training ResNet-50:  26%|##5       | 8/31 [00:30<00:40,  1.74s/it, loss=2.77, acc=8.33]
+Training ResNet-50:  29%|##9       | 9/31 [00:30<00:35,  1.61s/it, loss=2.77, acc=8.33]
+Training ResNet-50:  29%|##9       | 9/31 [00:31<00:35,  1.61s/it, loss=2.77, acc=9.38]
+Training ResNet-50:  32%|###2      | 10/31 [00:31<00:30,  1.43s/it, loss=2.77, acc=9.38]
+Training ResNet-50:  32%|###2      | 10/31 [00:32<00:30,  1.43s/it, loss=2.76, acc=8.81]
+Training ResNet-50:  35%|###5      | 11/31 [00:32<00:26,  1.31s/it, loss=2.76, acc=8.81]
+Training ResNet-50:  35%|###5      | 11/31 [00:34<00:26,  1.31s/it, loss=2.76, acc=8.59]
+Training ResNet-50:  39%|###8      | 12/31 [00:34<00:24,  1.28s/it, loss=2.76, acc=8.59]
+Training ResNet-50:  39%|###8      | 12/31 [00:35<00:24,  1.28s/it, loss=2.76, acc=8.89]
+Training ResNet-50:  42%|####1     | 13/31 [00:35<00:23,  1.33s/it, loss=2.76, acc=8.89]
+Training ResNet-50:  42%|####1     | 13/31 [00:36<00:23,  1.33s/it, loss=2.75, acc=10]  
+Training ResNet-50:  45%|####5     | 14/31 [00:36<00:22,  1.33s/it, loss=2.75, acc=10]
+Training ResNet-50:  45%|####5     | 14/31 [00:37<00:22,  1.33s/it, loss=2.74, acc=10.8]
+Training ResNet-50:  48%|####8     | 15/31 [00:37<00:19,  1.24s/it, loss=2.74, acc=10.8]
+Training ResNet-50:  48%|####8     | 15/31 [00:38<00:19,  1.24s/it, loss=2.74, acc=12.1]
+Training ResNet-50:  52%|#####1    | 16/31 [00:38<00:17,  1.18s/it, loss=2.74, acc=12.1]
+Training ResNet-50:  52%|#####1    | 16/31 [00:40<00:17,  1.18s/it, loss=2.73, acc=13.4]
+Training ResNet-50:  55%|#####4    | 17/31 [00:40<00:16,  1.18s/it, loss=2.73, acc=13.4]
+Training ResNet-50:  55%|#####4    | 17/31 [00:41<00:16,  1.18s/it, loss=2.72, acc=14.4]
+Training ResNet-50:  58%|#####8    | 18/31 [00:41<00:16,  1.26s/it, loss=2.72, acc=14.4]
+Training ResNet-50:  58%|#####8    | 18/31 [00:42<00:16,  1.26s/it, loss=2.71, acc=15.5]
+Training ResNet-50:  61%|######1   | 19/31 [00:42<00:15,  1.29s/it, loss=2.71, acc=15.5]
+Training ResNet-50:  61%|######1   | 19/31 [00:43<00:15,  1.29s/it, loss=2.7, acc=16.6] 
+Training ResNet-50:  65%|######4   | 20/31 [00:43<00:13,  1.21s/it, loss=2.7, acc=16.6]
+Training ResNet-50:  65%|######4   | 20/31 [00:44<00:13,  1.21s/it, loss=2.7, acc=17]  
+Training ResNet-50:  68%|######7   | 21/31 [00:44<00:11,  1.16s/it, loss=2.7, acc=17]
+Training ResNet-50:  68%|######7   | 21/31 [00:46<00:11,  1.16s/it, loss=2.69, acc=17.8]
+Training ResNet-50:  71%|#######   | 22/31 [00:46<00:10,  1.18s/it, loss=2.69, acc=17.8]
+Training ResNet-50:  71%|#######   | 22/31 [00:47<00:10,  1.18s/it, loss=2.69, acc=17.7]
+Training ResNet-50:  74%|#######4  | 23/31 [00:47<00:10,  1.26s/it, loss=2.69, acc=17.7]
+Training ResNet-50:  74%|#######4  | 23/31 [00:48<00:10,  1.26s/it, loss=2.68, acc=18.2]
+Training ResNet-50:  77%|#######7  | 24/31 [00:48<00:08,  1.28s/it, loss=2.68, acc=18.2]
+Training ResNet-50:  77%|#######7  | 24/31 [00:49<00:08,  1.28s/it, loss=2.68, acc=19]  
+Training ResNet-50:  81%|########  | 25/31 [00:49<00:07,  1.20s/it, loss=2.68, acc=19]
+Training ResNet-50:  81%|########  | 25/31 [00:50<00:07,  1.20s/it, loss=2.67, acc=19.2]
+Training ResNet-50:  84%|########3 | 26/31 [00:50<00:05,  1.15s/it, loss=2.67, acc=19.2]
+Training ResNet-50:  84%|########3 | 26/31 [00:52<00:05,  1.15s/it, loss=2.66, acc=20.1]
+Training ResNet-50:  87%|########7 | 27/31 [00:52<00:04,  1.11s/it, loss=2.66, acc=20.1]
+Training ResNet-50:  87%|########7 | 27/31 [00:53<00:04,  1.11s/it, loss=2.66, acc=20.3]
+Training ResNet-50:  90%|######### | 28/31 [00:53<00:03,  1.09s/it, loss=2.66, acc=20.3]
+Training ResNet-50:  90%|######### | 28/31 [00:54<00:03,  1.09s/it, loss=2.66, acc=20.7]
+Training ResNet-50:  94%|#########3| 29/31 [00:54<00:02,  1.12s/it, loss=2.66, acc=20.7]
+Training ResNet-50:  94%|#########3| 29/31 [00:55<00:02,  1.12s/it, loss=2.65, acc=20.9]
+Training ResNet-50:  97%|#########6| 30/31 [00:55<00:01,  1.22s/it, loss=2.65, acc=20.9]
+Training ResNet-50:  97%|#########6| 30/31 [00:56<00:01,  1.22s/it, loss=2.65, acc=20.8]
+Training ResNet-50: 100%|##########| 31/31 [00:56<00:00,  1.07s/it, loss=2.65, acc=20.8]
+Training ResNet-50: 100%|##########| 31/31 [00:57<00:00,  1.84s/it, loss=2.65, acc=20.8]
+
+Validating ResNet-50:   0%|          | 0/6 [00:00<?, ?it/s]
+Validating ResNet-50:  17%|#6        | 1/6 [00:21<01:45, 21.17s/it]
+Validating ResNet-50:  33%|###3      | 2/6 [00:22<00:37,  9.26s/it]
+Validating ResNet-50:  50%|#####     | 3/6 [00:23<00:16,  5.45s/it]
+Validating ResNet-50:  67%|######6   | 4/6 [00:23<00:07,  3.66s/it]
+Validating ResNet-50:  83%|########3 | 5/6 [00:24<00:02,  2.67s/it]
+Validating ResNet-50: 100%|##########| 6/6 [00:25<00:00,  1.89s/it]
+Validating ResNet-50: 100%|##########| 6/6 [00:25<00:00,  4.31s/it]
+
+Train Loss: 2.6465 | Train Acc: 20.84%
+Val Loss: 2.3904 | Val Acc: 43.35%
+[BEST] Model saved (Val Acc: 43.35%)
+
+Epoch 2/40
+
+Training ResNet-50:   0%|          | 0/31 [00:00<?, ?it/s]
+Training ResNet-50:   0%|          | 0/31 [00:21<?, ?it/s, loss=2.51, acc=34.4]
+Training ResNet-50:   3%|3         | 1/31 [00:21<10:41, 21.38s/it, loss=2.51, acc=34.4]
+Training ResNet-50:   3%|3         | 1/31 [00:22<10:41, 21.38s/it, loss=2.45, acc=43.8]
+Training ResNet-50:   6%|6         | 2/31 [00:22<04:33,  9.43s/it, loss=2.45, acc=43.8]
+Training ResNet-50:   6%|6         | 2/31 [00:23<04:33,  9.43s/it, loss=2.47, acc=40.6]
+Training ResNet-50:  10%|9         | 3/31 [00:23<02:36,  5.59s/it, loss=2.47, acc=40.6]
+Training ResNet-50:  10%|9         | 3/31 [00:24<02:36,  5.59s/it, loss=2.46, acc=38.3]
+Training ResNet-50:  13%|#2        | 4/31 [00:24<01:42,  3.79s/it, loss=2.46, acc=38.3]
+Training ResNet-50:  13%|#2        | 4/31 [00:25<01:42,  3.79s/it, loss=2.47, acc=36.2]
+Training ResNet-50:  16%|#6        | 5/31 [00:25<01:12,  2.80s/it, loss=2.47, acc=36.2]
+Training ResNet-50:  16%|#6        | 5/31 [00:26<01:12,  2.80s/it, loss=2.48, acc=35.9]
+Training ResNet-50:  19%|#9        | 6/31 [00:26<00:54,  2.20s/it, loss=2.48, acc=35.9]
+Training ResNet-50:  19%|#9        | 6/31 [00:27<00:54,  2.20s/it, loss=2.47, acc=36.6]
+Training ResNet-50:  23%|##2       | 7/31 [00:27<00:45,  1.88s/it, loss=2.47, acc=36.6]
+Training ResNet-50:  23%|##2       | 7/31 [00:29<00:45,  1.88s/it, loss=2.46, acc=35.9]
+Training ResNet-50:  26%|##5       | 8/31 [00:29<00:40,  1.75s/it, loss=2.46, acc=35.9]
+Training ResNet-50:  26%|##5       | 8/31 [00:30<00:40,  1.75s/it, loss=2.44, acc=37.8]
+Training ResNet-50:  29%|##9       | 9/31 [00:30<00:35,  1.60s/it, loss=2.44, acc=37.8]
+Training ResNet-50:  29%|##9       | 9/31 [00:31<00:35,  1.60s/it, loss=2.44, acc=38.1]
+Training ResNet-50:  32%|###2      | 10/31 [00:31<00:30,  1.43s/it, loss=2.44, acc=38.1]
+Training ResNet-50:  32%|###2      | 10/31 [00:32<00:30,  1.43s/it, loss=2.44, acc=36.6]
+Training ResNet-50:  35%|###5      | 11/31 [00:32<00:26,  1.33s/it, loss=2.44, acc=36.6]
+Training ResNet-50:  35%|###5      | 11/31 [00:33<00:26,  1.33s/it, loss=2.43, acc=37.2]
+Training ResNet-50:  39%|###8      | 12/31 [00:33<00:23,  1.23s/it, loss=2.43, acc=37.2]
+Training ResNet-50:  39%|###8      | 12/31 [00:34<00:23,  1.23s/it, loss=2.42, acc=37.7]
+Training ResNet-50:  42%|####1     | 13/31 [00:34<00:22,  1.24s/it, loss=2.42, acc=37.7]
+Training ResNet-50:  42%|####1     | 13/31 [00:36<00:22,  1.24s/it, loss=2.42, acc=37.5]
+Training ResNet-50:  45%|####5     | 14/31 [00:36<00:21,  1.29s/it, loss=2.42, acc=37.5]
+Training ResNet-50:  45%|####5     | 14/31 [00:37<00:21,  1.29s/it, loss=2.41, acc=37.5]
+Training ResNet-50:  48%|####8     | 15/31 [00:37<00:19,  1.21s/it, loss=2.41, acc=37.5]
+Training ResNet-50:  48%|####8     | 15/31 [00:38<00:19,  1.21s/it, loss=2.4, acc=38.7] 
+Training ResNet-50:  52%|#####1    | 16/31 [00:38<00:17,  1.18s/it, loss=2.4, acc=38.7]
+Training ResNet-50:  52%|#####1    | 16/31 [00:39<00:17,  1.18s/it, loss=2.39, acc=38.6]
+Training ResNet-50:  55%|#####4    | 17/31 [00:39<00:16,  1.20s/it, loss=2.39, acc=38.6]
+Training ResNet-50:  55%|#####4    | 17/31 [00:40<00:16,  1.20s/it, loss=2.39, acc=38.4]
+Training ResNet-50:  58%|#####8    | 18/31 [00:40<00:14,  1.15s/it, loss=2.39, acc=38.4]
+Training ResNet-50:  58%|#####8    | 18/31 [00:42<00:14,  1.15s/it, loss=2.39, acc=38.5]
+Training ResNet-50:  61%|######1   | 19/31 [00:42<00:14,  1.18s/it, loss=2.39, acc=38.5]
+Training ResNet-50:  61%|######1   | 19/31 [00:43<00:14,  1.18s/it, loss=2.39, acc=38]  
+Training ResNet-50:  65%|######4   | 20/31 [00:43<00:12,  1.16s/it, loss=2.39, acc=38]
+Training ResNet-50:  65%|######4   | 20/31 [00:44<00:12,  1.16s/it, loss=2.38, acc=39.3]
+Training ResNet-50:  68%|######7   | 21/31 [00:44<00:11,  1.12s/it, loss=2.38, acc=39.3]
+Training ResNet-50:  68%|######7   | 21/31 [00:45<00:11,  1.12s/it, loss=2.37, acc=39.2]
+Training ResNet-50:  71%|#######   | 22/31 [00:45<00:10,  1.20s/it, loss=2.37, acc=39.2]
+Training ResNet-50:  71%|#######   | 22/31 [00:46<00:10,  1.20s/it, loss=2.37, acc=39.1]
+Training ResNet-50:  74%|#######4  | 23/31 [00:46<00:09,  1.21s/it, loss=2.37, acc=39.1]
+Training ResNet-50:  74%|#######4  | 23/31 [00:47<00:09,  1.21s/it, loss=2.36, acc=39.8]
+Training ResNet-50:  77%|#######7  | 24/31 [00:47<00:08,  1.15s/it, loss=2.36, acc=39.8]
+Training ResNet-50:  77%|#######7  | 24/31 [00:49<00:08,  1.15s/it, loss=2.36, acc=40.6]
+Training ResNet-50:  81%|########  | 25/31 [00:49<00:07,  1.18s/it, loss=2.36, acc=40.6]
+Training ResNet-50:  81%|########  | 25/31 [00:50<00:07,  1.18s/it, loss=2.36, acc=40.6]
+Training ResNet-50:  84%|########3 | 26/31 [00:50<00:05,  1.16s/it, loss=2.36, acc=40.6]
+Training ResNet-50:  84%|########3 | 26/31 [00:51<00:05,  1.16s/it, loss=2.36, acc=40.4]
+Training ResNet-50:  87%|########7 | 27/31 [00:51<00:04,  1.22s/it, loss=2.36, acc=40.4]
+Training ResNet-50:  87%|########7 | 27/31 [00:52<00:04,  1.22s/it, loss=2.35, acc=40.6]
+Training ResNet-50:  90%|######### | 28/31 [00:52<00:03,  1.23s/it, loss=2.35, acc=40.6]
+Training ResNet-50:  90%|######### | 28/31 [00:53<00:03,  1.23s/it, loss=2.35, acc=40.3]
+Training ResNet-50:  94%|#########3| 29/31 [00:53<00:02,  1.16s/it, loss=2.35, acc=40.3]
+Training ResNet-50:  94%|#########3| 29/31 [00:54<00:02,  1.16s/it, loss=2.35, acc=40.2]
+Training ResNet-50:  97%|#########6| 30/31 [00:54<00:01,  1.18s/it, loss=2.35, acc=40.2]
+Training ResNet-50:  97%|#########6| 30/31 [00:55<00:01,  1.18s/it, loss=2.35, acc=40]  
+Training ResNet-50: 100%|##########| 31/31 [00:55<00:00,  1.01it/s, loss=2.35, acc=40]
+Training ResNet-50: 100%|##########| 31/31 [00:56<00:00,  1.81s/it, loss=2.35, acc=40]
+
+Validating ResNet-50:   0%|          | 0/6 [00:00<?, ?it/s]
+Validating ResNet-50:  17%|#6        | 1/6 [00:21<01:45, 21.16s/it]
+Validating ResNet-50:  33%|###3      | 2/6 [00:22<00:37,  9.25s/it]
+Validating ResNet-50:  50%|#####     | 3/6 [00:22<00:16,  5.45s/it]
+Validating ResNet-50:  67%|######6   | 4/6 [00:23<00:07,  3.66s/it]
+Validating ResNet-50:  83%|########3 | 5/6 [00:24<00:02,  2.67s/it]
+Validating ResNet-50: 100%|##########| 6/6 [00:25<00:00,  1.89s/it]
+Validating ResNet-50: 100%|##########| 6/6 [00:25<00:00,  4.30s/it]
+
+
+Train Loss: 2.3522 | Train Acc: 40.04%
+Val Loss: 2.1046 | Val Acc: 56.07%
+[BEST] Model saved (Val Acc: 56.07%)
+
+Epoch 3/40
+Training ResNet-50:   0%|          | 0/31 [00:00<?, ?it/s]
+Training ResNet-50:   0%|          | 0/31 [00:21<?, ?it/s, loss=2.22, acc=53.1]
+Training ResNet-50:   3%|3         | 1/31 [00:21<10:50, 21.67s/it, loss=2.22, acc=53.1]
+Training ResNet-50:   3%|3         | 1/31 [00:22<10:50, 21.67s/it, loss=2.24, acc=46.9]
+Training ResNet-50:   6%|6         | 2/31 [00:22<04:36,  9.55s/it, loss=2.24, acc=46.9]
+Training ResNet-50:   6%|6         | 2/31 [00:23<04:36,  9.55s/it, loss=2.22, acc=44.8]
+Training ResNet-50:  10%|9         | 3/31 [00:23<02:38,  5.68s/it, loss=2.22, acc=44.8]
+Training ResNet-50:  10%|9         | 3/31 [00:24<02:38,  5.68s/it, loss=2.2, acc=46.1] 
+Training ResNet-50:  13%|#2        | 4/31 [00:24<01:43,  3.85s/it, loss=2.2, acc=46.1]
+Training ResNet-50:  13%|#2        | 4/31 [00:25<01:43,  3.85s/it, loss=2.23, acc=42.5]
+Training ResNet-50:  16%|#6        | 5/31 [00:25<01:13,  2.84s/it, loss=2.23, acc=42.5]
+Training ResNet-50:  16%|#6        | 5/31 [00:26<01:13,  2.84s/it, loss=2.22, acc=44.8]
+Training ResNet-50:  19%|#9        | 6/31 [00:26<00:55,  2.24s/it, loss=2.22, acc=44.8]
+Training ResNet-50:  19%|#9        | 6/31 [00:28<00:55,  2.24s/it, loss=2.21, acc=47.3]
+Training ResNet-50:  23%|##2       | 7/31 [00:28<00:45,  1.89s/it, loss=2.21, acc=47.3]
+Training ResNet-50:  23%|##2       | 7/31 [00:29<00:45,  1.89s/it, loss=2.2, acc=48.4] 
+Training ResNet-50:  26%|##5       | 8/31 [00:29<00:40,  1.75s/it, loss=2.2, acc=48.4]
+Training ResNet-50:  26%|##5       | 8/31 [00:31<00:40,  1.75s/it, loss=2.21, acc=49] 
+Training ResNet-50:  29%|##9       | 9/31 [00:31<00:36,  1.66s/it, loss=2.21, acc=49]
+Training ResNet-50:  29%|##9       | 9/31 [00:32<00:36,  1.66s/it, loss=2.19, acc=50]
+Training ResNet-50:  32%|###2      | 10/31 [00:32<00:31,  1.50s/it, loss=2.19, acc=50]
+Training ResNet-50:  32%|###2      | 10/31 [00:33<00:31,  1.50s/it, loss=2.19, acc=50.9]
+Training ResNet-50:  35%|###5      | 11/31 [00:33<00:27,  1.37s/it, loss=2.19, acc=50.9]
+Training ResNet-50:  35%|###5      | 11/31 [00:34<00:27,  1.37s/it, loss=2.18, acc=50.8]
+Training ResNet-50:  39%|###8      | 12/31 [00:34<00:26,  1.39s/it, loss=2.18, acc=50.8]
+Training ResNet-50:  39%|###8      | 12/31 [00:36<00:26,  1.39s/it, loss=2.17, acc=51.4]
+Training ResNet-50:  42%|####1     | 13/31 [00:36<00:25,  1.41s/it, loss=2.17, acc=51.4]
+Training ResNet-50:  42%|####1     | 13/31 [00:37<00:25,  1.41s/it, loss=2.18, acc=50.4]
+Training ResNet-50:  45%|####5     | 14/31 [00:37<00:23,  1.35s/it, loss=2.18, acc=50.4]
+Training ResNet-50:  45%|####5     | 14/31 [00:38<00:23,  1.35s/it, loss=2.17, acc=51]  
+Training ResNet-50:  48%|####8     | 15/31 [00:38<00:20,  1.27s/it, loss=2.17, acc=51]
+Training ResNet-50:  48%|####8     | 15/31 [00:39<00:20,  1.27s/it, loss=2.17, acc=51.8]
+Training ResNet-50:  52%|#####1    | 16/31 [00:39<00:18,  1.21s/it, loss=2.17, acc=51.8]
+Training ResNet-50:  52%|#####1    | 16/31 [00:40<00:18,  1.21s/it, loss=2.16, acc=52.6]
+Training ResNet-50:  55%|#####4    | 17/31 [00:40<00:17,  1.25s/it, loss=2.16, acc=52.6]
+Training ResNet-50:  55%|#####4    | 17/31 [00:42<00:17,  1.25s/it, loss=2.16, acc=52.6]
+Training ResNet-50:  58%|#####8    | 18/31 [00:42<00:16,  1.23s/it, loss=2.16, acc=52.6]
+Training ResNet-50:  58%|#####8    | 18/31 [00:43<00:16,  1.23s/it, loss=2.16, acc=52]  
+Training ResNet-50:  61%|######1   | 19/31 [00:43<00:15,  1.27s/it, loss=2.16, acc=52]
+Training ResNet-50:  61%|######1   | 19/31 [00:44<00:15,  1.27s/it, loss=2.15, acc=52.2]
+Training ResNet-50:  65%|######4   | 20/31 [00:44<00:13,  1.23s/it, loss=2.15, acc=52.2]
+Training ResNet-50:  65%|######4   | 20/31 [00:45<00:13,  1.23s/it, loss=2.15, acc=51.5]
+Training ResNet-50:  68%|######7   | 21/31 [00:45<00:11,  1.18s/it, loss=2.15, acc=51.5]
+Training ResNet-50:  68%|######7   | 21/31 [00:47<00:11,  1.18s/it, loss=2.14, acc=52]  
+Training ResNet-50:  71%|#######   | 22/31 [00:47<00:11,  1.27s/it, loss=2.14, acc=52]
+Training ResNet-50:  71%|#######   | 22/31 [00:48<00:11,  1.27s/it, loss=2.14, acc=51.9]
+Training ResNet-50:  74%|#######4  | 23/31 [00:48<00:10,  1.33s/it, loss=2.14, acc=51.9]
+Training ResNet-50:  74%|#######4  | 23/31 [00:49<00:10,  1.33s/it, loss=2.14, acc=52.3]
+Training ResNet-50:  77%|#######7  | 24/31 [00:49<00:08,  1.26s/it, loss=2.14, acc=52.3]
+Training ResNet-50:  77%|#######7  | 24/31 [00:51<00:08,  1.26s/it, loss=2.14, acc=52.6]
+Training ResNet-50:  81%|########  | 25/31 [00:51<00:07,  1.32s/it, loss=2.14, acc=52.6]
+Training ResNet-50:  81%|########  | 25/31 [00:52<00:07,  1.32s/it, loss=2.13, acc=52.9]
+Training ResNet-50:  84%|########3 | 26/31 [00:52<00:06,  1.24s/it, loss=2.13, acc=52.9]
+Training ResNet-50:  84%|########3 | 26/31 [00:53<00:06,  1.24s/it, loss=2.13, acc=52.4]
+Training ResNet-50:  87%|########7 | 27/31 [00:53<00:05,  1.30s/it, loss=2.13, acc=52.4]
+Training ResNet-50:  87%|########7 | 27/31 [00:54<00:05,  1.30s/it, loss=2.13, acc=52.3]
+Training ResNet-50:  90%|######### | 28/31 [00:54<00:03,  1.26s/it, loss=2.13, acc=52.3]
+Training ResNet-50:  90%|######### | 28/31 [00:56<00:03,  1.26s/it, loss=2.13, acc=52.2]
+Training ResNet-50:  94%|#########3| 29/31 [00:56<00:02,  1.28s/it, loss=2.13, acc=52.2]
+Training ResNet-50:  94%|#########3| 29/31 [00:57<00:02,  1.28s/it, loss=2.13, acc=51.8]
+Training ResNet-50:  97%|#########6| 30/31 [00:57<00:01,  1.29s/it, loss=2.13, acc=51.8]
+Training ResNet-50:  97%|#########6| 30/31 [00:57<00:01,  1.29s/it, loss=2.13, acc=51.8]
+Training ResNet-50: 100%|##########| 31/31 [00:57<00:00,  1.04s/it, loss=2.13, acc=51.8]
+Training ResNet-50: 100%|##########| 31/31 [00:58<00:00,  1.89s/it, loss=2.13, acc=51.8]
+
+Validating ResNet-50:   0%|          | 0/6 [00:00<?, ?it/s]
+Validating ResNet-50:  17%|#6        | 1/6 [00:22<01:50, 22.17s/it]
+Validating ResNet-50:  33%|###3      | 2/6 [00:23<00:38,  9.69s/it]
+Validating ResNet-50:  50%|#####     | 3/6 [00:24<00:17,  5.69s/it]
+Validating ResNet-50:  67%|######6   | 4/6 [00:24<00:07,  3.81s/it]
+Validating ResNet-50:  83%|########3 | 5/6 [00:25<00:02,  2.79s/it]
+Validating ResNet-50: 100%|##########| 6/6 [00:26<00:00,  1.98s/it]
+Validating ResNet-50: 100%|##########| 6/6 [00:26<00:00,  4.50s/it]
+
+
+Train Loss: 2.1301 | Train Acc: 51.85%
+Val Loss: 1.9433 | Val Acc: 61.27%
+[BEST] Model saved (Val Acc: 61.27%)
+
+Epoch 4/40
+Training ResNet-50:   0%|          | 0/31 [00:00<?, ?it/s]C:\Users\Sardar Sameer\AppData\Local\Programs\Python\Python312\Lib\site-packages\albumentations\check_version.py:147: UserWarning: Error fetching version info <urlopen error [Errno 11001] getaddrinfo failed>
+  data = fetch_version_info()
+
+Training ResNet-50:   0%|          | 0/31 [53:33<?, ?it/s, loss=2.04, acc=59.4]
+Training ResNet-50:   3%|3         | 1/31 [53:33<26:46:59, 3213.97s/it, loss=2.04, acc=59.4]
+Training ResNet-50:   3%|3         | 1/31 [54:05<26:46:59, 3213.97s/it, loss=1.98, acc=59.4]
+Training ResNet-50:   6%|6         | 2/31 [54:05<10:48:33, 1341.85s/it, loss=1.98, acc=59.4]
+Training ResNet-50:   6%|6         | 2/31 [54:08<10:48:33, 1341.85s/it, loss=1.98, acc=57.3]
+Training ResNet-50:  10%|9         | 3/31 [54:08<5:41:01, 730.76s/it, loss=1.98, acc=57.3]  
+Training ResNet-50:  10%|9         | 3/31 [54:12<5:41:01, 730.76s/it, loss=1.94, acc=53.1]

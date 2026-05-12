@@ -1,0 +1,50 @@
+**********************
+PowerShell transcript start
+Start time: 20260511074833
+Username: FAIRE-HPGQGY3\Sardar Sameer
+RunAs User: FAIRE-HPGQGY3\Sardar Sameer
+Configuration Name: 
+Machine: FAIRE-HPGQGY3 (Microsoft Windows NT 10.0.26200.0)
+Host Application: C:\Program Files\WindowsApps\Microsoft.PowerShell_7.6.1.0_x64__8wekyb3d8bbwe\pwsh.dll -noexit -command try { . "c:\Users\Sardar Sameer\AppData\Local\Programs\Microsoft VS Code\8b640eef5a\resources\app\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration.ps1" } catch {}
+Process ID: 29372
+PSVersion: 7.6.1
+PSEdition: Core
+GitCommitId: 7.6.1
+OS: Microsoft Windows 10.0.26200
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.4
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is .\training_output.txt
+]633;D;0]633;A]633;P;Cwd=C:\x5cUsers\x5cSardar Sameer\x5cPakPolitician-ClassifierPS C:\Users\Sardar Sameer\PakPolitician-Classifier> ]633;B
+PS>(Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned) ; (& "c:\Users\Sardar Sameer\PakPolitician-Classifier\.venv\Scripts\Activate.ps1")
+]633;D;0]633;A]633;P;Cwd=C:\x5cUsers\x5cSardar Sameer\x5cPakPolitician-ClassifierPS C:\Users\Sardar Sameer\PakPolitician-Classifier> ]633;B
+]633;D]633;A]633;P;Cwd=C:\x5cUsers\x5cSardar Sameer\x5cPakPolitician-ClassifierPS C:\Users\Sardar Sameer\PakPolitician-Classifier> ]633;B
+]633;D]633;A]633;P;Cwd=C:\x5cUsers\x5cSardar Sameer\x5cPakPolitician-ClassifierPS C:\Users\Sardar Sameer\PakPolitician-Classifier> ]633;B
+(.venv) (Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned) ; (& "c:\Users\Sardar Sameer\PakPolitician-Classifier\.venv\Scripts\Activate.ps1")
+]633;D;0]633;A]633;P;Cwd=C:\x5cUsers\x5cSardar Sameer\x5cPakPolitician-ClassifierPS C:\Users\Sardar Sameer\PakPolitician-Classifier> ]633;B
+(.venv) (Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned) ; (& "c:\Users\Sardar Sameer\PakPolitician-Classifier\.venv\Scripts\Activate.ps1")
+]633;D;0]633;A]633;P;Cwd=C:\x5cUsers\x5cSardar Sameer\x5cPakPolitician-ClassifierPS C:\Users\Sardar Sameer\PakPolitician-Classifier> ]633;B
+(.venv) Get-CimInstance Win32_Process -Filter "Name='python.exe'" | Where-Object { $_.CommandLine -match 'train_models.py' } | Select-Object ProcessId,CommandLine | Format-List
+]633;D;0]633;A]633;P;Cwd=C:\x5cUsers\x5cSardar Sameer\x5cPakPolitician-ClassifierPS C:\Users\Sardar Sameer\PakPolitician-Classifier> ]633;B
+(.venv) python .\src\train_models.py
+ checks, set the environment variable NO_ALBUMENTATIONS_UPDATE to
+ 1.
+  check_for_updates()
+C:\Users\Sardar Sameer\PakPolitician-Classifier\.venv\Lib\site-pa
+ckages\albumentations\__init__.py:13: UserWarning: A new version
+of Albumentations is available: 2.0.8 (you have 1.4.18). Upgrade
+using: pip install -U albumentations. To disable automatic update
+ checks, set the environment variable NO_ALBUMENTATIONS_UPDATE to
+ 1.
+  check_for_updates()
+]633;D;0]633;A]633;P;Cwd=C:\x5cUsers\x5cSardar Sameer\x5cPakPolitician-ClassifierPS C:\Users\Sardar Sameer\PakPolitician-Classifier> ]633;B
+]633;D]633;A]633;P;Cwd=C:\x5cUsers\x5cSardar Sameer\x5cPakPolitician-ClassifierPS C:\Users\Sardar Sameer\PakPolitician-Classifier> ]633;B
+]633;D]633;A]633;P;Cwd=C:\x5cUsers\x5cSardar Sameer\x5cPakPolitician-ClassifierPS C:\Users\Sardar Sameer\PakPolitician-Classifier> ]633;B
+(.venv) (Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned) ; (& "c:\Users\Sardar Sameer\PakPolitician-Classifier\.venv\Scripts\Activate.ps1")
+]633;D;0]633;A]633;P;Cwd=C:\x5cUsers\x5cSardar Sameer\x5cPakPolitician-ClassifierPS C:\Users\Sardar Sameer\PakPolitician-Classifier> ]633;B
+(.venv) python .\src\extract_faces.py --source-root data\processed --output-root data\faces_strict --drop-no-face --classes altaf_hussain maulana_fazlur_rehman siraj_ul_haq tariq_fazal_chaudhry
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cUsers\x5cSardar Sameer\x5cPakPolitician-ClassifierPS C:\Users\Sardar Sameer\PakPolitician-Classifier> ]633;B

@@ -8,11 +8,12 @@ from __future__ import annotations
 import os
 from pathlib import Path
 from typing import Any
+from collections import Counter
 
 import cv2
 import numpy as np
 import torch
-from torch.utils.data import Dataset, DataLoader
+from torch.utils.data import Dataset, DataLoader, WeightedRandomSampler
 from augmentation import get_train_augmentation, get_val_augmentation, get_test_augmentation
 
 
@@ -104,6 +105,7 @@ def get_dataloaders(
     batch_size: int = 32,
     num_workers: int = 4,
     image_size: int = 224,
+    balance_train: bool = True,
 ) -> tuple[DataLoader, DataLoader, DataLoader]:
     """
     Create DataLoaders for train, val, and test sets
@@ -120,11 +122,25 @@ def get_dataloaders(
     train_dataset = PoliticianFaceDataset(root_dir, split="train", image_size=image_size)
     val_dataset = PoliticianFaceDataset(root_dir, split="val", image_size=image_size)
     test_dataset = PoliticianFaceDataset(root_dir, split="test", image_size=image_size)
+
+    train_sampler = None
+    shuffle = True
+    if balance_train and len(train_dataset.labels) > 0:
+        class_counts = Counter(train_dataset.labels)
+        sample_weights = [1.0 / class_counts[label] for label in train_dataset.labels]
+        train_sampler = WeightedRandomSampler(
+            weights=torch.DoubleTensor(sample_weights),
+            num_samples=len(sample_weights),
+            replacement=True,
+        )
+        shuffle = False
+        print("Enabled weighted sampling for balanced training")
     
     train_loader = DataLoader(
         train_dataset,
         batch_size=batch_size,
-        shuffle=True,
+        shuffle=shuffle,
+        sampler=train_sampler,
         num_workers=num_workers,
         pin_memory=True,
     )

@@ -45,10 +45,22 @@ def main() -> None:
     if abs((train_ratio + val_ratio + test_ratio) - 1.0) > 1e-9:
         raise ValueError("Split ratios must sum to 1.0")
 
-    raw_root = Path("data") / "raw"
+    strict_faces_root = Path("data") / "faces_strict"
+    faces_root = Path("data") / "faces"
+    processed_root = Path("data") / "processed"
+    if strict_faces_root.exists():
+        raw_root = strict_faces_root
+    elif faces_root.exists():
+        raw_root = faces_root
+    elif processed_root.exists():
+        raw_root = processed_root
+    else:
+        raw_root = Path("data") / "raw"
     out_root = Path("dataset")
     report_root = Path("reports")
     report_root.mkdir(parents=True, exist_ok=True)
+
+    print(f"Using source images from: {raw_root}")
 
     for split_name in ("train", "val", "test"):
         split_dir = out_root / split_name

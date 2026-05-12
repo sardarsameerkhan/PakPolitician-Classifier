@@ -16,7 +16,7 @@ def get_train_augmentation(image_size: int = 224) -> A.Compose:
     return A.Compose(
         [
             # RandomResizedCrop combines resizing and cropping safely
-            A.RandomResizedCrop(height=image_size, width=image_size, scale=(0.8, 1.0), p=0.5),
+            A.RandomResizedCrop(size=(image_size, image_size), scale=(0.8, 1.0), p=0.5),
             
             # First resize to target size (for images not affected by RandomResizedCrop)
             A.Resize(height=image_size, width=image_size, always_apply=True),
